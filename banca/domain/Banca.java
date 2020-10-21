@@ -3,6 +3,7 @@ package banca.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import banca.data.DatabaseInterface;
 import banca.data.InMemoryDatabase;
 import banca.domain.exception.SaldoInsufficenteException;
 
@@ -14,7 +15,7 @@ public class Banca {
 	private String nome = "Bank of Java";
 	private String[] codiciSegreti = {"adfhfda","asdafaf","zxcxv"};
 		
-	private InMemoryDatabase database = new InMemoryDatabase();
+	private DatabaseInterface database = new InMemoryDatabase();
 	
 	private Banca() {
 	}
@@ -38,7 +39,7 @@ public class Banca {
 	return false;
 	}
 	
-	public void Deposita(double deposito, int idConto, int idCliente) {
+	public void deposita(double deposito, int idConto, int idCliente) {
 		for(Cliente cliente : database.getAllClients()) {
 			int id = cliente.getId();
 			if(idCliente == id) {
@@ -51,7 +52,7 @@ public class Banca {
 		
 	}
 	
-	public void Bonifica(double bonifico, int idContoSorgente, int idClienteSorgente,
+	public void bonifica(double bonifico, int idContoSorgente, int idClienteSorgente,
 			int idContoDestinatario, int idClienteDestinatario) throws SaldoInsufficenteException {
 		
 		Cliente sorgente = null;
