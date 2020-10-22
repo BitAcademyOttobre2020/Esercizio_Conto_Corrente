@@ -66,6 +66,19 @@ public class Cliente {
 		return id;
 	}
 	
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public Map<Integer, ContoCorrente> getConti() {
+		return conti;
+	}
+
 	public ContoCorrente getContoById(int id) {
 		return conti.get(id);
 	}

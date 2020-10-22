@@ -39,6 +39,18 @@ public class Banca {
 	return false;
 	}
 	
+	public void preleva(double amount, int idConto, int idCliente) throws SaldoInsufficenteException {
+		for(Cliente cliente : database.getAllClients()) {
+			int id = cliente.getId();
+			if(idCliente == id) {
+				ContoCorrente x = cliente.getContoById(idConto);
+				x.preleva(amount);
+				return;
+			}
+		}
+		
+	}
+	
 	public void deposita(double deposito, int idConto, int idCliente) {
 		for(Cliente cliente : database.getAllClients()) {
 			int id = cliente.getId();
