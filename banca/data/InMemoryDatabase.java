@@ -7,6 +7,7 @@ import banca.domain.Cliente;
 import banca.domain.ContoCayman;
 import banca.domain.ContoCorrente;
 import banca.domain.ContoItaliano;
+import banca.domain.Impiegato;
 import banca.domain.Sesso;
 
 public class InMemoryDatabase implements DatabaseInterface{
@@ -30,5 +31,10 @@ public class InMemoryDatabase implements DatabaseInterface{
 		c2.aggiungiConto(cc22);
 		clienti.add(c2);
 		return clienti;
+	}
+	@Override
+	public Iterable<Impiegato> getAllImpiegati() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

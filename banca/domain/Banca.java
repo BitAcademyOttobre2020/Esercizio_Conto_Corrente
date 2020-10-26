@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import banca.data.DatabaseInterface;
+import banca.data.FilesDatabase;
 import banca.data.InMemoryDatabase;
 import banca.domain.exception.SaldoInsufficenteException;
 
@@ -16,10 +17,14 @@ public class Banca {
 	private String[] codiciSegreti = {"adfhfda","asdafaf","zxcxv"};
 		
 	private DatabaseInterface database = new InMemoryDatabase();
+	private DatabaseInterface fileDatabase = new FilesDatabase();
 	
 	private Banca() {
 	}
 	
+	public Iterable<Impiegato> getImpiegato(){
+		return fileDatabase.getAllImpiegati();
+	}
 	
 	public Iterable<Cliente> getClienti() {
 		return database.getAllClients();
