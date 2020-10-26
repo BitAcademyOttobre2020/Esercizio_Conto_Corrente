@@ -33,6 +33,8 @@ public class Identity {
 		return this;
 	}
 	
+	
+	
 	public List<Impiegato> getMaschiMinori(){
 		return listaMaschiMinori;
 	}
