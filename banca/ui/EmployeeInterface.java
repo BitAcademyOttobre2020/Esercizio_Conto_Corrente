@@ -37,7 +37,7 @@ public class EmployeeInterface {
 				.mapToDouble(emp -> emp.getStipendio()).average();
 		double medianaStipendi = medianaOptional.orElse(0);
 
-		// - è vero che lo stipendio più basso degli uomni + + alto di quello + alto
+		// - è vero che lo stipendio più basso degli uomini + + alto di quello + alto
 		// delle donne
 		boolean dirittiDonne = lEmp.stream()
 				.sorted((e1, e2) -> (int) (Math.signum(e1.getStipendio() - e2.getStipendio())))
@@ -51,6 +51,8 @@ public class EmployeeInterface {
 		
 		Identity x = lEmp.stream()
 						.reduce(new Identity(), (id,emp)->id.combina(emp), (id1,id2)->id1.combina(id2));
+		
+		
 	}
 
 }
