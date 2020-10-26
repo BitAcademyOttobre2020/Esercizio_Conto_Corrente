@@ -9,6 +9,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import banca.domain.Banca;
+import banca.domain.Identity;
 import banca.domain.Impiegato;
 import banca.domain.Sesso;
 
@@ -47,6 +48,9 @@ public class EmployeeInterface {
 		List<Impiegato> minoriVC = lEmp.stream()
 				.filter(e->Period.between(e.getBirth(), LocalDate.now()).getYears()<25)
 				.collect(Collectors.toList());
+		
+		Identity x = lEmp.stream()
+						.reduce(new Identity(), (id,emp)->id.combina(emp), (id1,id2)->id1.combina(id2));
 	}
 
 }
